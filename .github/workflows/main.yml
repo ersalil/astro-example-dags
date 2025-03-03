@@ -17,6 +17,7 @@ jobs:
       uses: astronomer/deploy-action@v0.10.0
       with:
             deployment-id: cm7suoy2a18wr01r7f2jhwtrq
-            deploy-type: dbt
-            root-folder: dbt/my_simple_dbt_project
-            mount-path: /usr/local/airflow/dbt/my_simple_dbt_project
+            parse: true
+            # # deploy-type: dbt
+            # root-folder: dbt/my_simple_dbt_project
+            # mount-path: /usr/local/airflow/dbt/my_simple_dbt_project
