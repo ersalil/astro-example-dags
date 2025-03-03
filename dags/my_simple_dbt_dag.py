@@ -20,7 +20,7 @@ DB_NAME = "postgres"
 SCHEMA_NAME = "public"
 MODEL_TO_QUERY = "model2"
 # The path to the dbt project
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/dags/dbt/my_simple_dbt_project"
+DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/dbt/my_simple_dbt_project"
 # The path where Cosmos will find the dbt executable
 # in the virtual environment created in the Dockerfile
 DBT_EXECUTABLE_PATH = f"{os.environ['AIRFLOW_HOME']}/dbt_venv/bin/dbt"
