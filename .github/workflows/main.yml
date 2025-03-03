@@ -19,3 +19,4 @@ jobs:
             deployment-id: cm7suoy2a18wr01r7f2jhwtrq
             deploy-type: dbt
             root-folder: dags/dbt/my_simple_dbt_project
+            mount-path: /tmp/custom_dbt_path
