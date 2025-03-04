@@ -3,7 +3,7 @@ name: Astronomer CI - Deploy dbt code
 on:
   push:
     branches:
-      - main
+      - dbt-only
 
 env:
   ## Sets Deployment API credentials as environment variables
