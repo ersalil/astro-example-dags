@@ -21,7 +21,7 @@ jobs:
     - name: Deploy to Astro
       uses: astronomer/deploy-action@v0.10.0
       with:
-        deployment-id: cm7suoy2a18wr01r7f2jhwtrq
+        deployment-id: cm7ubshgs0ahx01pb7afr8v12
         deploy-type: dbt
         root-folder: dbt/my_simple_dbt_project
         mount-path: /tmp/my_simple_dbt_project
