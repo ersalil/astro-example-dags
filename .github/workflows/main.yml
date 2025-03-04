@@ -6,18 +6,22 @@ on:
       - dbt-only
 
 env:
-  ## Sets Deployment API credentials as environment variables
   ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy to Astro
-      uses: astronomer/deploy-action@v0.9.0
+    - name: Checkout dbt-only branch
+      uses: actions/checkout@v4
       with:
-            deployment-id: cm7suoy2a18wr01r7f2jhwtrq
-            # parse: true
-            deploy-type: dbt
-            root-folder: dbt/my_simple_dbt_project
-            mount-path: /tmp/my_simple_dbt_project
+        ref: dbt-only
+        fetch-depth: 0 # Ensure full history is fetched
+
+    - name: Deploy to Astro
+      uses: astronomer/deploy-action@v0.10.0
+      with:
+        deployment-id: cm7suoy2a18wr01r7f2jhwtrq
+        deploy-type: dbt
+        root-folder: dbt/my_simple_dbt_project
+        mount-path: /tmp/my_simple_dbt_project
