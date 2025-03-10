@@ -27,11 +27,6 @@ jobs:
         root-folder: dbt/my_simple_dbt_project
         mount-path: /tmp/my_simple_dbt_project
 
-    - name: Force set DBT outputs if empty
-      run: |
-        echo "DBT_DEPLOY=false" >> $GITHUB_OUTPUT
-        echo "DBT_OPTIONS=" >> $GITHUB_OUTPUT
-
     - name: Add test variable to GitHub output
       id: test_output
       run: |
