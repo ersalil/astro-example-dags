@@ -31,14 +31,6 @@ jobs:
       id: test_output
       run: |
         echo "TEST_VARIABLE=HelloWorld" >> $GITHUB_OUTPUT
-
-    - name: Debug deploy action internals
-      run: |
-        echo "Raw DBT_DEPLOY value: $DBT_DEPLOY"
-        echo "Raw options value: $options"
-        echo "Writing to GITHUB_OUTPUT..."
-        echo "DBT_DEPLOY=$DBT_DEPLOY" >> $GITHUB_OUTPUT
-        echo "DBT_OPTIONS=$options" >> $GITHUB_OUTPUT
     
     - name: Debug GITHUB_OUTPUT path
       run: |
