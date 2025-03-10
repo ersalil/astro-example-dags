@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy to Astro
       id: deploy
-      uses: astronomer/deploy-action@v0.10.0
+      uses: ersalil/deploy-action@main
       with:
         deployment-id: cm82uf92v0xr301efhf1xaevl
         deploy-type: dbt
