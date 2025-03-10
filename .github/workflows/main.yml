@@ -38,6 +38,15 @@ jobs:
         ls -l $GITHUB_OUTPUT || echo "GITHUB_OUTPUT not found"
         cat $GITHUB_OUTPUT || echo "GITHUB_OUTPUT is empty"
 
+    - name: Debug deploy shell environment
+      run: |
+        echo "Checking shell environment"
+        /usr/bin/bash --noprofile --norc -e -o pipefail -c '
+          echo "DBT_DEPLOY: $DBT_DEPLOY"
+          echo "options: $options"
+          echo "GITHUB_OUTPUT: $GITHUB_OUTPUT"
+        '
+
     # Check the exact outputs from deploy-action
     - name: Show deploy outputs
       run: |
