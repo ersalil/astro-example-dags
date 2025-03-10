@@ -19,9 +19,15 @@ jobs:
         fetch-depth: 0 # Ensure full history is fetched
 
     - name: Deploy to Astro
+      id: deploy
       uses: astronomer/deploy-action@v0.10.0
       with:
         deployment-id: cm7ubshgs0ahx01pb7afr8v12
         deploy-type: dbt
         root-folder: dbt/my_simple_dbt_project
         mount-path: /tmp/my_simple_dbt_project
+
+    - name: Show deploy outputs
+      run: |
+        echo "DBT_DEPLOY=${{ steps.deploy.outputs.DBT_DEPLOY }}"
+        echo "DBT_OPTIONS=${{ steps.deploy.outputs.DBT_OPTIONS }}"
