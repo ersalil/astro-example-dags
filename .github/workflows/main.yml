@@ -30,7 +30,10 @@ jobs:
     - name: Add test variable to GitHub output
       id: test_output
       run: |
-        echo "TEST_VARIABLE=HelloWorld" >> $GITHUB_OUTPUT
+        Test=false
+        Test2="HelloWorld"
+        echo "TEST=$Test" >> $GITHUB_OUTPUT
+        echo "TEST2=$Test2" >> $GITHUB_OUTPUT
     
     - name: Debug GITHUB_OUTPUT path
       run: |
@@ -38,21 +41,12 @@ jobs:
         ls -l $GITHUB_OUTPUT || echo "GITHUB_OUTPUT not found"
         cat $GITHUB_OUTPUT || echo "GITHUB_OUTPUT is empty"
 
-    - name: Debug deploy shell environment
-      run: |
-        echo "Checking shell environment"
-        /usr/bin/bash --noprofile --norc -e -o pipefail -c '
-          echo "DBT_DEPLOY: $DBT_DEPLOY"
-          echo "options: $options"
-          echo "GITHUB_OUTPUT: $GITHUB_OUTPUT"
-        '
-
     # Check the exact outputs from deploy-action
-    - name: Show deploy outputs
-      run: |
-        echo "DBT_DEPLOY=${{ steps.deploy.outputs.DBT_DEPLOY }}"
-        echo "DBT_OPTIONS=${{ steps.deploy.outputs.DBT_OPTIONS }}"
-        echo "TEST_VARIABLE=${{ steps.test_output.outputs.TEST_VARIABLE }}"
+    # - name: Show deploy outputs
+    #   run: |
+    #     echo "DBT_DEPLOY=${{ steps.deploy.outputs.DBT_DEPLOY }}"
+    #     echo "DBT_OPTIONS=${{ steps.deploy.outputs.DBT_OPTIONS }}"
+    #     echo "TEST_VARIABLE=${{ steps.test_output.outputs.TEST_VARIABLE }}"
 
     # Use JSON to capture all outputs from deploy-action
     - name: Capture all deploy outputs
