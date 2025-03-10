@@ -41,6 +41,4 @@ jobs:
     - name: Debug all outputs
       run: |
         echo "==== ALL OUTPUTS ===="
-        for step in ${{ toJSON(steps) }}; do
-          echo "$step"
-        done
+        echo '${{ toJSON(steps) }}' | jq
