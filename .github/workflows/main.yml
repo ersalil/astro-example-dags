@@ -27,16 +27,10 @@ jobs:
         root-folder: dbt/my_simple_dbt_project
         mount-path: /tmp/my_simple_dbt_project
 
-    - name: Add test variable to GitHub output
-      id: test_output
-      run: |
-        echo "TEST_VARIABLE=HelloWorld" >> $GITHUB_OUTPUT
-
     - name: Show deploy outputs
       run: |
         echo "DBT_DEPLOY=${{ steps.deploy.outputs.DBT_DEPLOY }}"
         echo "DBT_OPTIONS=${{ steps.deploy.outputs.DBT_OPTIONS }}"
-        echo "TEST_VARIABLE=${{ steps.test_output.outputs.TEST_VARIABLE }}"
 
     - name: Debug all outputs
       run: |
