@@ -22,7 +22,7 @@ jobs:
       id: deploy
       uses: astronomer/deploy-action@v0.10.0
       with:
-        deployment-id: cm7ubshgs0ahx01pb7afr8v12
+        deployment-id: cm82uf92v0xr301efhf1xaevl
         deploy-type: dbt
         root-folder: dbt/my_simple_dbt_project
         mount-path: /tmp/my_simple_dbt_project
